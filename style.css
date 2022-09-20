@@ -1,0 +1,210 @@
+
+*{
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #2f80ff;
+  /*background: #3ccbff*/
+}
+
+.wrapper{
+  width: 800px;
+  padding: 35px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.wrapper h1{
+  text-align: center;
+  padding-bottom: 20px;
+  color: #444;
+  font-size: 32px;
+}
+
+.wrapper h1 i{
+  color:#2f80ff;
+  font-size: 32px;
+  padding-right: 12px;
+}
+
+.wrapper .input-field{
+  z-index: -999;
+  opacity: 0;
+  position: absolute;
+}
+
+.wrapper .content-box{
+  padding: 13px 20px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.content-box .typing-text{
+  overflow-y: auto;
+}
+
+.typing-text::-webkit-scrollbar{
+  width: 0;
+}
+
+.typing-text p{
+  text-align: justify;
+  word-break:keep-all;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+
+.typing-text p span{
+  position: relative;
+  font-size: 24px;
+}
+
+.typing-text p span.correct{
+  color: #2f80ff;
+}
+
+.typing-text p span.incorrect{
+  color: #cb3439;
+  background: #ffc0cb;
+  outline: 1px solid #fff;
+  border-radius: 4px;
+}
+
+.typing-text p span.active{
+  color:#2800ff;
+}
+
+.typing-text p span.active::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  opacity: 0;
+  background: #17a2b8;
+  animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink{
+  50%{
+    opacity: 1;
+  }
+}
+
+.content-box .content{
+  display: flex;
+  margin-top: 17px;
+  padding: 12px 0;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  justify-content: space-between;
+}
+
+.content button{
+  border: none;
+  outline: none;
+  width: 105px;
+  padding: 8px 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  background: #2f80ff;
+  transition: transform 0.3s ease;
+}
+
+.content button:hover{
+  transform: scale(1.1);
+}
+
+.content button:active{
+  transform: scale(0.97);
+}
+
+.content .result-details{
+  display: flex;
+  width: calc(100%-140px);
+  justify-content: space-between;
+}
+
+.result-details li{
+  height: 22px;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  padding-right: 22px;
+}
+
+.result-details li:not(:first-child){
+  padding-left: 22px;
+  border-left: 1px solid #ccc;
+}
+
+.result-details li p{
+  font-size: 19px;
+}
+
+.result-details li span{
+  display: block;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.result-details li:not(:first-child) span{
+  font-weight: 500;
+}
+
+.result-details li b{
+  font-weight: 500;
+}
+
+.result-details .wpm{
+  position: relative;
+  width: auto;
+  height: 100%;
+}
+
+.result-details .wpm p:hover::after{
+  content: "Words Per Minute\A Average : 50~60 WPM";
+  padding: 10px 20px;
+  border-radius: 10px;
+  position: absolute;
+  text-align: center;
+  white-space: pre;
+  font-size: 14px;
+  line-height: 1.5;
+  bottom: -300%;
+  left: -25%;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+.result-details .cpm{
+  position: relative;
+  width: auto;
+  height: 100%;
+}
+
+.result-details .cpm p:hover::after{
+  content: "characters per minute";
+  padding: 10px 20px;
+  border-radius: 10px;
+  position: absolute;
+  text-align: center;
+  white-space: pre;
+  font-size: 14px;
+  line-height: 1.5;
+  bottom: -210%;
+  left: -25%;
+  background: #fff;
+  border: 1px solid #ccc;
+}
